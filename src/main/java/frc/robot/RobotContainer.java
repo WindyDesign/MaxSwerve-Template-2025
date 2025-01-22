@@ -6,6 +6,7 @@ package frc.robot;
 
   //Robot system imports
 import frc.robot.Constants.OIConstants;
+import frc.robot.Constants.keybindConstants;
 import frc.robot.subsystems.robotsystems.DriveSubsystem;
 import frc.robot.subsystems.scoring.exampleSubsystem;
 import frc.robot.subsystems.scoring.autonCommands.ExampleCommand;
@@ -49,7 +50,7 @@ private final SendableChooser<Command> autoChooser;
   public RobotContainer() {
   
       //Shoots a single note
-    NamedCommands.registerCommand("Shoot Speaker", new ExampleCommand(m_shooter).withTimeout(1));
+    NamedCommands.registerCommand("Shoot", new ExampleCommand(m_shooter).withTimeout(1));
   
 
 
@@ -90,29 +91,20 @@ private final SendableChooser<Command> autoChooser;
 
 private void configureButtonBindings() {
     //changes turn speed to low
-  new JoystickButton(m_driverController, 3).whileTrue(new RunCommand(() -> m_robotDrive.changeTurnSpeedLow(),m_robotDrive));
+  new JoystickButton(m_driverController, keybindConstants.kTurnSpeedLow).whileTrue(new RunCommand(() -> m_robotDrive.changeTurnSpeedLow(),m_robotDrive));
     
     //changes turn speed to high
-  new JoystickButton(m_driverController, 4).whileTrue(new RunCommand(() -> m_robotDrive.changeTurnSpeedHigh(),m_robotDrive));
+  new JoystickButton(m_driverController, keybindConstants.kTurnSpeedHigh).whileTrue(new RunCommand(() -> m_robotDrive.changeTurnSpeedHigh(),m_robotDrive));
 
     //Resets gyro
-  new JoystickButton(m_driverController, 7).whileTrue(new RunCommand(() -> m_robotDrive.zeroHeading(),m_robotDrive)); 
+  new JoystickButton(m_driverController, keybindConstants.kResetGyro).whileTrue(new RunCommand(() -> m_robotDrive.zeroHeading(),m_robotDrive)); 
   
     //Sets wheels straight
-   new JoystickButton(m_driverController, 8).whileTrue(new RunCommand(() -> m_robotDrive.setWheelsStraight(),m_robotDrive));
+   new JoystickButton(m_driverController, keybindConstants.kWheelStraightAlign).whileTrue(new RunCommand(() -> m_robotDrive.setWheelsStraight(),m_robotDrive));
     
     //wheels in x position--brake--driver top middle button    
-  new JoystickButton(m_driverController, Button.kR1.value).whileTrue(new RunCommand(() -> m_robotDrive.setX(),m_robotDrive)); 
+  new JoystickButton(m_driverController, keybindConstants.kWheelXAlign).whileTrue(new RunCommand(() -> m_robotDrive.setX(),m_robotDrive)); 
         
-    //Speaker shot  y button
-  new JoystickButton(m_operatorController, 4).whileTrue(new RunCommand(() -> m_shooter.shooterSpeaker(), m_shooter));   
-
-     
-
-    //speical intake
-  //new JoystickButton(m_operatorController, 5).whileTrue(new RunCommand(() -> m_intake.intakeSonarControl(), m_intake));    
-
-                //End button Bindings
   }
 
 
