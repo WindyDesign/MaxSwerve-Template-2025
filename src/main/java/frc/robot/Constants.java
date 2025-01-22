@@ -35,7 +35,10 @@ public final class Constants {
     //                #### THESE ARE ONLY THE VALUES YOU NEED TO CHANGE OFTEN ####
     
             // Driving Parameters - Note that these are not the maximum capable speeds of the robot, rather the allowed maximum speed for the robot
-    public static double kMaxSpeedMetersPerSecond = 4.8; //max 4.8
+    public static double kMaxSpeedMetersPerSecond = 4.8; //max 4.8 with modules used in 2024
+
+            // This refers to the actual top speed of the robot, used by pathplanner to drive the robot (can be lowered if somebody don't trust it ehm Gaskill)
+    public static double kTrueMaxSpeedMetersPerSecond = 4.8;
     
             //Sets the high and max turning speed, seperate variable so you don't have to swap two values
     private static double maxTurnSpeed = 1.35 * Math.PI; // Max 2
@@ -89,6 +92,11 @@ public final class Constants {
 
     // LETS THE ROBOT KNOW THE GYRO IS REVERSED
     public static final boolean kGyroReversed = false;
+
+
+    // LETS PATHPLANNER WORK
+        // Drive base radius in meters. Distance from robot center to furthest module.
+    public static final double kDriveBaseRadius = 0.584; //Leftover from last year
   }
 
   public static final class ModuleConstants {
