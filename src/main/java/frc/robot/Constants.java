@@ -9,6 +9,7 @@ import com.revrobotics.CANSparkBase.IdleMode;
 import edu.wpi.first.math.geometry.Translation2d;
 import edu.wpi.first.math.kinematics.SwerveDriveKinematics;
 import edu.wpi.first.math.util.Units;
+import edu.wpi.first.wpilibj.PS4Controller.Button;
 
 /**
  * The Constants class provides a convenient place for teams to hold robot-wide
@@ -146,6 +147,25 @@ public final class Constants {
     public static final int kDriverControllerPort = 0;
     public static final int kOperatorControllerPort = 1;
     public static final double kDriveDeadband = 0.05;
+  }
+
+  public static final class keybindConstants {
+      // Button bindings to adjust the turning rate of the robot (something we control during the match)
+    public static final int kTurnSpeedLow = 3;
+    public static final int kTurnSpeedHigh = 4;
+
+      // Button bindings for Pre-match and Trouble shooting
+
+        //Resets the gyro
+      public static final int kResetGyro = 7;
+      
+        //Sets wheels straight
+      public static final int kWheelStraightAlign = 8;
+        
+        //wheels in x position, driver top middle button
+      public static final int kWheelXAlign = Button.kR1.value;
+
+
   }
 
 //     You shouldn't need to touch this
